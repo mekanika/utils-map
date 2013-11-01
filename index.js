@@ -48,7 +48,7 @@ function map( fn, col ) {
       : {};
 
     // Apply the transform `fn` and add result to collection
-    each( function(val, key) {
+    var res = each( function(val, key) {
 
       col instanceof Array
         ? ret.push( fn( val, key, col ) )
@@ -56,7 +56,7 @@ function map( fn, col ) {
 
     }, col );
 
-    return ret;
+    return res instanceof TypeError ? res : ret;
   }
 
   // Return a curried `map(fn)` or the transformed collection
