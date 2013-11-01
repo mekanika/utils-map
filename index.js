@@ -51,8 +51,8 @@ function map( fn, col ) {
     each( function(val, key) {
 
       col instanceof Array
-        ? ret.push( fn( val ) )
-        : ret[ key ] = fn( val )
+        ? ret.push( fn( val, key, col ) )
+        : ret[ key ] = fn( val, key, col )
 
     }, col );
 
