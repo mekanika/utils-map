@@ -3,9 +3,16 @@
 
   Functional style map iterator `map( fn, collection )`
 
-  A standard map iterator for Objects and Arrays, but one that
-  flips traditional `map` parameters around to supports currying for partial
-  application of mutator functions for mapping:
+#### Overview
+
+A standard map iterator for Objects and Arrays:
+
+- Steps through each element in `collection`
+- Applies the transform function `fn( value )`
+- Returns the mutated collection
+
+Main difference is that it flips traditional `map` parameters around to
+support currying, for partial application of mutator functions for mapping:
 
 ```js
 var square = map( function(v) { return v*v; } );
