@@ -24,6 +24,10 @@ square( [1,2,3] );
 
 ## Installation
 
+  Install with npm:
+
+    $ npm install mekanika-utils-map
+
   Install with [component(1)](http://component.io):
 
     $ component install mekanika/utils-map
@@ -56,16 +60,20 @@ map( mutatorFn, collection );
 
 ## Usage
 
-For a browser:
-
-```html
-<script src="build/mekanika-utils-map.min.js">
-```
-
 For node:
 
 ```js
 var map = require('mekanika-utils-map');
+```
+
+For use in a browser, first build the file:
+
+    $ make component
+
+Then include
+
+```html
+<script src="build/mekanika-utils-map.js">
 ```
 
 ### Examples
