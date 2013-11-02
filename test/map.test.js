@@ -55,6 +55,20 @@ describe('.map( fn, collection )', function() {
     expect( res ).to.have.property( 'c', 16 );
   });
 
+  it('passes (val, key, col) to iterator method', function(done) {
+    var oc = [5];
+
+    function iter( v, k, col ) {
+      expect( v ).to.be( 5 );
+      expect( k ).to.be( '0' );
+      expect( col ).to.be( oc );
+      expect( col[ k ] ).to.be( 5 );
+      done();
+    }
+
+    map( iter, oc );
+  });
+
   it('fails if not passed Array or Object collection', function() {
     var res = map( squareFn, 'woo' );
     expect( res ).to.be.a( TypeError );
