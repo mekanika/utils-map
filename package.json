@@ -1,6 +1,6 @@
 {
   "name": "mekanika-utils-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Functional style map iterator `map( fn, collection )`",
   "keywords": ["map", "iterator", "functional"],
   "main": "index.js",
