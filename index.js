@@ -30,13 +30,14 @@ module.exports = map;
  *
  * @param {Function} fn The transform method, passed `fn( val, index, collection)`
  * @param {Object|Array} col A collection of properties (either Array or Object)
+ * @param {this} [self] Optional `this` context for fn callback
  *
  * @returns {Object|Array|Function} Returns the collection, or a curried function
  */
 
 //+ map :: Function -> Object|Array -> Object|Array
 
-function map( fn, col ) {
+function map( fn, col, self ) {
 
   // Curried method requiring `col` parameter
 
@@ -51,8 +52,8 @@ function map( fn, col ) {
     var res = each( function(val, key) {
 
       col instanceof Array
-        ? ret.push( fn( val, key, col ) )
-        : ret[ key ] = fn( val, key, col )
+        ? ret.push( fn.call( self, val, key, col ) )
+        : ret[ key ] = fn.call( self, val, key, col )
 
     }, col );
 

@@ -2,7 +2,7 @@
   "name": "mekanika-utils-map",
   "repo": "mekanika/utils-map",
   "description": "Functional style map iterator `map( fn, collection )`",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "keywords": ["map", "iterator", "functional"],
   "dependencies": {
     "mekanika/utils-each": "*"

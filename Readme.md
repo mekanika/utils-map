@@ -1,7 +1,7 @@
 
 # mekanika-utils-map
 
-  Functional style map iterator `map( fn, collection )`
+  Functional style map iterator `map( fn, collection [, this] )`
 
 #### Overview
 
@@ -36,7 +36,7 @@ square( [1,2,3] );
 ## API
 
 ```js
-map( mutatorFn, collection );
+map( mutatorFn, collection [, thisBinding] );
 ```
 
 ### Requires
@@ -52,6 +52,8 @@ map( mutatorFn, collection );
   - `collection` _{Object|Array}_
 
 - `collection` _{Object|Array}_ The collection of elements to iterate
+
+- `thisBinding` _(*)_ Optional `this` binding for the mutatorFn callback
 
 ### Returns
 

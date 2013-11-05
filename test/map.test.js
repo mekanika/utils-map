@@ -97,3 +97,40 @@ describe('.map( fn )', function() {
   });
 
 });
+
+
+/**
+ * `this` can be optionally passed in
+ */
+
+describe('this Context', function() {
+
+  it('passes in and applies optional `this` context', function() {
+
+    var Hobo = function( clump ) {
+      if (!clump.clan) throw new Error('No clump.clan defined');
+      this.hobo = clump.clan + ' bobo';
+      this.doit = function(x) {
+        this.hobo = clump.clan + ' '+x;
+      }
+    }
+    var Clump = function() {
+      this.clan = '[vagrants]';
+      this.make = function() { return new Hobo( this ); }
+    }
+    var Go = new Clump();
+
+    var err;
+    try {
+      map( Go.make, ['smoo'] );
+    }
+    catch( e ) { err = e; }
+    expect( err ).to.be.an( Error );
+
+    var res = map( Go.make, ['smoo'], Go );
+    expect( res ).to.have.length( 1 );
+    expect( res[0].hobo ).to.be( '[vagrants] bobo' );
+
+  });
+
+});
